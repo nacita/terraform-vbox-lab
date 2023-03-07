@@ -1,11 +1,11 @@
-# Preparing VirtualBox LAB with terraform
+# Menyiapkan LAB VirtualBox dengan terraform
 
 Bagaimana cara menggunakan repo ini? berikut langkah-langkahnya secara singkat
 
 ## Install beberapa dependency berikut
 
 ```bash
-sudo apt install python3-pip sshpass 
+sudo apt install python3-pip sshpass -y
 # install ansible
 sudo pip3 install -r ansible/requirement.txt
 # install terraform
@@ -18,6 +18,7 @@ sudo mv terraform /usr/local/bin/terraform
 ## eksekusi
 
 ```bash
+cp variable.tf.example variable.tf
 terraform init
 terraform plan
 terraform apply
