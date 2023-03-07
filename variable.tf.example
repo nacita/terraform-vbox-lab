@@ -1,0 +1,31 @@
+variable "hostname" {
+  type = list(string)
+  default = [
+    "nacita-lab0",
+    "nacita-lab1",
+  ]
+}
+variable "vm_template" {
+  default = "https://master.dl.sourceforge.net/project/nacita-box/debian/debian-11.box?viasf=1"
+}
+variable "domain" {
+  default = "nacita"
+}
+variable "memoryMB" {
+  default = "512 mib"
+}
+variable "cpu" {
+  default = 1
+}
+variable "interfaceType" {
+  default = "bridged"
+}
+variable "hostInterface" {
+  default = "eno1"
+}
+variable "pvt_key" {
+  default = "~/.ssh/id_rsa"
+}
+variable "pub_key" {
+  default = "~/.ssh/id_rsa.pub"
+}

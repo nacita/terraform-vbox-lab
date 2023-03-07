@@ -1,0 +1,6 @@
+*.box
+*.tfstate*
+variable.tf
+.terraform/
+inventory
+.terraform.lock.hcl

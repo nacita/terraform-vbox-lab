@@ -1,0 +1,25 @@
+- name: Run Ansible Playbook
+  hosts: all
+  become: true
+  remote_user: student
+  gather_facts: false
+  tasks:
+    - name: Upload banner file
+      ansible.builtin.copy:
+        src: banner.txt
+        dest: /etc/nacita
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Add SSH Banner
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^Banner'
+        insertafter: '^#Banner '
+        line: 'Banner /etc/nacita'
+      
+    - name: Restart SSH service
+      ansible.builtin.service:
+        name: ssh
+        state: restarted
